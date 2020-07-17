@@ -46,4 +46,5 @@ app.on('activate', () => {
     };
 });
 
-// TODO: The real functionality
+// Execute the action file
+require('./calculator.js');
