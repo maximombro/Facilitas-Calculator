@@ -59,12 +59,16 @@ button:hover,
     padding: 0;
     background-color: var(--colorDarkA);
     height: 120px;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
 }
 
 .equations > li {
     position: relative;
     padding: 4px 8px 4px 8px;
     min-height: 24px;
+    border-top: 1px solid var(--colorAccentA);
     border-bottom: 1px solid var(--colorAccentA);
 }
 
@@ -82,7 +86,7 @@ button:hover,
 }
 
 .equations > li > span::before {
-    content: '| ';
+    content: ' > ';
 }
 
 /* Choice Items */
@@ -127,7 +131,7 @@ button:hover,
 /* Calculator Buttons */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 4px;
     grid-auto-rows: 100%;
 }
