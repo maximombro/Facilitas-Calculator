@@ -86,12 +86,12 @@ button:hover,
     color: var(--colorLightA);
 }
 
-.equations > li > span.err {
+.equations > li > span.output.err {
     color: var(--colorAccentB);
 }
 
-.equations > li > span::before {
-    content: ' > ';
+.equations > li > span.output::before {
+    content: ' -> ';
 }
 
 /* Choice Items */
