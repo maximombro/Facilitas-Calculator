@@ -1,0 +1,23 @@
+{
+  "name": "facilitascalculator",
+  "version": "1.0.0",
+  "description": "A calculator to help the average coder with their math",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^9.1.0"
+  },
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/maximombro/Facilitas-Calculator.git"
+  },
+  "author": "Brody Childs",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/maximombro/Facilitas-Calculator/issues"
+  },
+  "homepage": "https://github.com/maximombro/Facilitas-Calculator#readme"
+}
