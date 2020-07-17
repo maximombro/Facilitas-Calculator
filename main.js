@@ -9,18 +9,18 @@ const { app, BrowserWindow } = require('electron');
 
 /// Functions
 // Creates a new window
-function createWindow() {
+function createWindow(width = 600, height = 800, htmlFile = 'index.html') {
     // Create the window
     const win = new BrowserWindow({
-        width: 600,
-        height: 800,
+        width: width,
+        height: height,
         webPreferences: {
             nodeIntegration: true
         }
     });
 
     // Load the index html
-    win.loadFile('index.html');
+    win.loadFile(htmlFile);
 
     // Open dev tools
     win.webContents.openDevTools();
