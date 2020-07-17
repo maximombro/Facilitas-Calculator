@@ -38,6 +38,19 @@ body {
     margin: 0;
 }
 
+button,
+.button {
+    cursor: pointer;
+    background-color: var(--colorDarkA);
+    color: whitesmoke;
+    border: none;
+}
+
+button:hover,
+.button:hover {
+    background-color: var(--colorAccentA);
+}
+
 /* Equation List */
 .equations {
     width: 100%;
@@ -109,4 +122,16 @@ body {
 
 .choiceItems > div > ul > li:hover {
     background-color: var(--colorAccentA);
+}
+
+/* Calculator Buttons */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4px;
+    grid-auto-rows: 100%;
+}
+
+.buttons > button {
+    font-size: large;
 }
