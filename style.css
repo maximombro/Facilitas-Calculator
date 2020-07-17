@@ -6,10 +6,66 @@
 
 /* Definitions */
 :root {
+    /* Colors */
     --colorLightA: #c5c5c5;
     --colorLightB: #949b96;
     --colorDarkA: #4c5c61;
     --colorDarkB: #829191;
     --colorGood: #2c423f;
     --colorBad: #fe615a;
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url(./fonts/SourceCodePro-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Source Code Pro Bold';
+    src: url(./fonts/SourceCodePro-Bold.ttf);
+}
+
+/* General */
+html, 
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-color: var(--colorDarkB);
+    color: whitesmoke;
+    margin: 0;
+}
+
+/* Equation List */
+.equations {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.equations > li {
+    position: relative;
+    background-color: var(--colorDarkA);
+    padding: 4px 8px 4px 8px;
+    min-height: 24px;
+}
+
+.equations > li {
+    margin: 0;
+}
+
+.equations > li > span {
+    font-family: 'Source Code Pro Bold', monospace;
+    color: var(--colorLightA);
+}
+
+.equations > li > span.err {
+    color: var(--colorBad);
+}
+
+.equations > li > span::before {
+    content: '| ';
 }
