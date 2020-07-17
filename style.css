@@ -11,8 +11,8 @@
     --colorLightB: #949b96;
     --colorDarkA: #4c5c61;
     --colorDarkB: #829191;
-    --colorGood: #2c423f;
-    --colorBad: #fe615a;
+    --colorAccentA: #2c423f;
+    --colorAccentB: #fe615a;
 }
 
 @font-face {
@@ -44,13 +44,15 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    background-color: var(--colorDarkA);
+    height: 120px;
 }
 
 .equations > li {
     position: relative;
-    background-color: var(--colorDarkA);
     padding: 4px 8px 4px 8px;
     min-height: 24px;
+    border-bottom: 1px solid var(--colorAccentA);
 }
 
 .equations > li {
@@ -63,9 +65,48 @@ body {
 }
 
 .equations > li > span.err {
-    color: var(--colorBad);
+    color: var(--colorAccentB);
 }
 
 .equations > li > span::before {
     content: '| ';
+}
+
+/* Choice Items */
+.choiceItems {
+    padding: 4px 4px 4px 4px;
+    position: relative;
+}
+
+.choiceItems > div {
+    width: 25%;
+    background-color: var(--colorDarkA);
+    padding: 4px;
+}
+
+.choiceItems > div:hover {
+    background-color: var(--colorAccentA);
+}
+
+.choiceItems > div > p {
+    margin: 0;
+    text-align: center;
+}
+
+.choiceItems > div > ul {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.choiceItems > div > ul > li {
+    cursor: pointer;
+    padding: 6px;
+    margin-top: 4px;
+    background-color: var(--colorDarkA);
+}
+
+.choiceItems > div > ul > li:hover {
+    background-color: var(--colorAccentA);
 }
