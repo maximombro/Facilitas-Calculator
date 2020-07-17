@@ -26,6 +26,10 @@
 }
 
 /* General */
+* {
+    box-sizing: border-box;
+}
+
 html, 
 body {
     height: 100%;
@@ -54,11 +58,12 @@ button:hover,
 /* Equation List */
 .equations {
     width: 100%;
+    height: 52%;
+    min-height: 120px;
     list-style-type: none;
     margin: 0;
     padding: 0;
     background-color: var(--colorDarkA);
-    height: 120px;
     display: flex;
     flex-direction: column-reverse;
     overflow-y: auto;
@@ -91,6 +96,7 @@ button:hover,
 
 /* Choice Items */
 .choiceItems {
+    height: 5.5%;
     padding: 4px 4px 4px 4px;
     position: relative;
 }
@@ -134,7 +140,7 @@ button:hover,
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 4px;
-    height: 300px;
+    height: 32%;
 }
 
 .buttons > button {
@@ -144,6 +150,6 @@ button:hover,
 .buttons+button {
     font-size: large;
     width: 100%;
-    height: 75px;
-    margin: 4px 0px 4px 0px;
+    height: 10%;
+    margin: 4px 0px 0px 0px;
 }
