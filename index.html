@@ -5,12 +5,44 @@
         <title>Facilitas Calculator</title>
 
         <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"/>
+        
+        <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
-        <h1>Facilitas Calculator</h1>
-        We are using node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
+        <ol class="equations">
+            <li>
+                <p>equation being typed</p>
+                <p>result</p>
+            </li>
+        </ol>
+        <div class="controls">
+            <div>
+                <p>Section Name</p>
+                <ul>
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                </ul>
+            </div>
+        </div>
+        <div class="buttons">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>-/+</button>
+            <button>0</button>
+            <button>.</button>
+        </div>
     </body>
 </html>

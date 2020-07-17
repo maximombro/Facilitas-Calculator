@@ -1,0 +1,15 @@
+/*
+    Facilitas Calculator
+    App Style
+    You know what it does.
+*/
+
+/* Definitions */
+:root {
+    --colorLightA: #c5c5c5;
+    --colorLightB: #949b96;
+    --colorDarkA: #4c5c61;
+    --colorDarkB: #829191;
+    --colorGood: #2c423f;
+    --colorBad: #fe615a;
+}
