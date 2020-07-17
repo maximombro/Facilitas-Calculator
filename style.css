@@ -132,10 +132,18 @@ button:hover,
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-gap: 4px;
-    grid-auto-rows: 100%;
+    height: 300px;
 }
 
 .buttons > button {
     font-size: large;
+}
+
+.buttons+button {
+    font-size: large;
+    width: 100%;
+    height: 75px;
+    margin: 4px 0px 4px 0px;
 }
