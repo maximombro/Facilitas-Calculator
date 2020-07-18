@@ -139,20 +139,21 @@ function resizeInput(target) {
 function setup() {
     // Populate the sections
     buildSection('Trigonometry', {
-        sin: 'optionA',
-        cos: 'optionB',
-        tan: 'optionC',
-        sec: 'optionD',
-        csc: 'optionE',
-        cot: 'optionF',
+        sin: 'sin(x)',
+        cos: 'cos(x)',
+        tan: 'tan(x)',
+        sec: 'sec(x)',
+        csc: 'csc(x)',
+        cot: 'cot(x)',
+        asin: 'asin(x)',
+        acos: 'acos(x)',
+        atan: 'atan(x)'
     });
 
     // TODO: Add click events to the numpad grid buttons to add to the current input
 
     // Create a new equation input
     createNewInput();
-
-    // TODO: Begin watching the input to calculate per change
 
     // TODO: Add listeners to Enter Grid Button and Enter Key to finish current input
         // TODO: Move old input up to a stagnant display (with a click listener to copy result?)
