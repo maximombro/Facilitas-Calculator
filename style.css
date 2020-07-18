@@ -127,7 +127,20 @@ button:hover,
     display: none;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0px 4px 4px 4px;
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    background-color: var(--colorDarkB);
+    border: 1px solid var(--colorAccentA);
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 3px 3px black
+}
+
+#choiceItems > div:hover > ul {
+    display: block;
 }
 
 #choiceItems > div > ul > li {
