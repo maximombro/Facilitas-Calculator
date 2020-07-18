@@ -51,11 +51,21 @@ function createNewInput() {
     // Create the input container element
     var container = document.createElement('li');
 
+    // Create the hide span
+    var spanHide = document.createElement('span');
+    spanHide.classList.add('hide');
+
+    // Add the hide span
+    container.appendChild(spanHide);
+
     // Create the text input
     var textInput = document.createElement('input');
     textInput.setAttribute('type', 'text');
     textInput.setAttribute('value', '');
     textInput.setAttribute('placeholder', '...');
+
+    // Add input listener
+    textInput.addEventListener('input', resizeInputWithThis);
 
     // Add the input to the container
     container.appendChild(textInput);
@@ -71,6 +81,20 @@ function createNewInput() {
 
     // Add the input to the page
     document.getElementById('equations').appendChild(container);
+
+    // Resize to fit the starting size
+    resizeInput(textInput);
+}
+
+// Calls the resize with 'this' as a target
+function resizeInputWithThis() {
+    // Call the other function
+    resizeInput(this);
+}
+
+// Calls the resize with the provided target
+function resizeInput(target) {
+    console.log(target, target.previousElementSibling);
 }
 
 /// Setup Function

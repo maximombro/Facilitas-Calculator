@@ -109,6 +109,13 @@ button:hover,
     color: var(--colorLightA);
 }
 
+#equations > li > span.hide {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    white-space: pre;
+}
+
 #equations > li > span.output.err {
     color: var(--colorAccentB);
 }
