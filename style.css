@@ -55,6 +55,22 @@ button:hover,
     background-color: var(--colorAccentA);
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: lightgray; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--colorDarkA); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--colorAccentA); 
+}
+
 /* Equation List */
 #equations {
     width: 100%;
@@ -134,10 +150,9 @@ button:hover,
     right: 4px;
     background-color: var(--colorDarkB);
     border: 1px solid var(--colorAccentA);
-    border-top: none;
     max-height: 200px;
     overflow-y: auto;
-    box-shadow: 1px 1px black
+    box-shadow: 1px 1px 3px black
 }
 
 #choiceItems > div:hover > ul {
