@@ -34,7 +34,17 @@ function buildSection(title, items) {
         var optionElement = document.createElement('li');
         optionElement.textContent = item;
 
-        // TODO: Add click listener to add to the current input
+        // Add click listener to add to the current input
+        optionElement.addEventListener('click', () => {
+            // Get the last child of the equations
+            var currentInput = document.getElementById('equations').lastChild.querySelector('input');
+
+            // Add the current bit to the input
+            currentInput.value = currentInput.value+items[item];
+
+            // Resize the input
+            resizeInput(currentInput);
+        });
 
         // Add to the options container
         optionsContainer.appendChild(optionElement);
