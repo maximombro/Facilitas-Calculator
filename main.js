@@ -45,6 +45,3 @@ app.on('activate', () => {
         createWindow();
     };
 });
-
-// Execute the action file
-require('./calculator.js');

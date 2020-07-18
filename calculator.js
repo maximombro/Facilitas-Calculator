@@ -9,11 +9,45 @@
 /// Variables
 
 /// Functions
+// Builds a section with the specified title and items
+// title -> The title of the section
+// items -> 
+function buildSection(title, items) {
+    // Create the main div container
+    var mainContainer = document.createElement('div');
+
+    // Create a p element
+    var titleElement = document.createElement('p');
+    titleElement.innerHTML = title;
+
+    // Add the p element to the main container
+    mainContainer.appendChild(titleElement);
+
+    // Create the options container
+    var optionsContainer = document.createElement('ul');
+
+    // Loop through the provided items
+    for(const item of items) {
+        // Create a list element
+        var optionElement = document.createElement('li');
+        optionElement.innerHTML = item;
+
+        // Add to the options container
+        optionsContainer.appendChild(optionElement);
+    }
+
+    // Add to the main div container
+    mainContainer.appendChild(optionsContainer);
+
+    // Add the main container to the page
+    document.getElementById('choiceItems').appendChild(mainContainer);
+}
 
 /// Setup Function
 // Function that sets up the calculator
 function setup() {
     // TODO: Populate the sections and add click events to open their specific menus (trigonometry, function, special, etc)
+    buildSection('Test', ['Item 1', 'Item 2', 'Item 3', 'Item 4']);
 
     // TODO: Populate the sections' specific menus and add click events to add to the current input
 

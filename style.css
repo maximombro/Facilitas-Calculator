@@ -56,7 +56,7 @@ button:hover,
 }
 
 /* Equation List */
-.equations {
+#equations {
     width: 100%;
     height: 52%;
     min-height: 120px;
@@ -69,7 +69,7 @@ button:hover,
     overflow-y: auto;
 }
 
-.equations > li {
+#equations > li {
     position: relative;
     padding: 4px 8px 4px 8px;
     min-height: 24px;
@@ -77,65 +77,72 @@ button:hover,
     border-bottom: 1px solid var(--colorAccentA);
 }
 
-.equations > li {
+#equations > li {
     margin: 0;
 }
 
-.equations > li > span {
+#equations > li > span {
     font-family: 'Source Code Pro Bold', monospace;
     color: var(--colorLightA);
 }
 
-.equations > li > span.output.err {
+#equations > li > span.output.err {
     color: var(--colorAccentB);
 }
 
-.equations > li > span.output::before {
+#equations > li > span.output::before {
     content: ' -> ';
 }
 
 /* Choice Items */
-.choiceItems {
+#choiceItems {
+    display: flex;
     height: 5.5%;
     padding: 4px 4px 4px 4px;
     position: relative;
 }
 
-.choiceItems > div {
-    width: 25%;
+#choiceItems > div {
+    cursor: pointer;
+    width: 33%;
     background-color: var(--colorDarkA);
     padding: 4px;
+    margin-left: 4px;
 }
 
-.choiceItems > div:hover {
+#choiceItems > div:first-of-type {
+    margin-left: 0;
+}
+
+#choiceItems > div:hover {
     background-color: var(--colorAccentA);
 }
 
-.choiceItems > div > p {
+#choiceItems > div > p {
     margin: 0;
     text-align: center;
 }
 
-.choiceItems > div > ul {
+#choiceItems > div > ul {
     display: none;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.choiceItems > div > ul > li {
+#choiceItems > div > ul > li {
     cursor: pointer;
     padding: 6px;
     margin-top: 4px;
     background-color: var(--colorDarkA);
 }
 
-.choiceItems > div > ul > li:hover {
+#choiceItems > div > ul > li:hover {
     background-color: var(--colorAccentA);
 }
 
 /* Calculator Buttons */
-.buttons {
+#buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
@@ -143,11 +150,11 @@ button:hover,
     height: 32%;
 }
 
-.buttons > button {
+#buttons > button {
     font-size: large;
 }
 
-.buttons+button {
+#buttons+button {
     font-size: large;
     width: 100%;
     height: 10%;
