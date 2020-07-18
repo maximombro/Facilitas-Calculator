@@ -33,6 +33,8 @@ function buildSection(title, items) {
         var optionElement = document.createElement('li');
         optionElement.innerHTML = item;
 
+        // TODO: Add click listener to add to the current input
+
         // Add to the options container
         optionsContainer.appendChild(optionElement);
     }
@@ -47,12 +49,14 @@ function buildSection(title, items) {
 /// Setup Function
 // Function that sets up the calculator
 function setup() {
-    // TODO: Populate the sections and add click events to open their specific menus (trigonometry, function, special, etc)
-    buildSection('Test', {
-        optionA: 'optionA',
-        optionB: 'optionB',
-        optionC: 'optionC',
-        optionD: 'optionD'
+    // Populate the sections
+    buildSection('Trigonometry', {
+        sin: 'optionA',
+        cos: 'optionB',
+        tan: 'optionC',
+        sec: 'optionD',
+        csc: 'optionE',
+        cot: 'optionF',
     });
 
     // TODO: Populate the sections' specific menus and add click events to add to the current input
