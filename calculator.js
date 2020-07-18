@@ -8,6 +8,7 @@
 const { evaluate } = require('mathjs');
 
 /// Variables
+var MATH_SCOPE = {};
 
 /// Functions
 // Builds a section with the specified title and items
@@ -79,7 +80,7 @@ function createNewInput() {
         // Enter the try/catch
         try {
             // Calculate the value based on input
-            var mathResult = evaluate(event.target.value);
+            var mathResult = evaluate(event.target.value, MATH_SCOPE);
 
             // Check if math result is undefined
             if(mathResult === undefined || typeof(mathResult) === 'function') {
@@ -159,7 +160,8 @@ function setup() {
         phi: 'phi',
         pi: 'pi',
         e: 'e',
-        gcd: 'gcd(a, b)'
+        gcd: 'gcd(a, b)',
+        variable: 'a = '
     });
 
     // TODO: Add click events to the numpad grid buttons to add to the current input
