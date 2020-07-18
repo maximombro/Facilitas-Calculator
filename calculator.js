@@ -139,15 +139,27 @@ function resizeInput(target) {
 function setup() {
     // Populate the sections
     buildSection('Trigonometry', {
-        sin: 'sin(x)',
-        cos: 'cos(x)',
-        tan: 'tan(x)',
-        sec: 'sec(x)',
-        csc: 'csc(x)',
-        cot: 'cot(x)',
-        asin: 'asin(x)',
-        acos: 'acos(x)',
-        atan: 'atan(x)'
+        sin: 'sin(a)',
+        cos: 'cos(a)',
+        tan: 'tan(a)',
+        sec: 'sec(a)',
+        csc: 'csc(a)',
+        cot: 'cot(a)',
+        asin: 'asin(a)',
+        acos: 'acos(a)',
+        atan: 'atan(a)'
+    });
+
+    buildSection('Functions', {
+        sqrt: 'sqrt(a)',
+        power: '^2',
+        absolute: 'abs(a)',
+        ceil: 'ceil(a)',
+        floor: 'floor(a)',
+        phi: 'phi',
+        pi: 'pi',
+        e: 'e',
+        gcd: 'gcd(a, b)'
     });
 
     // TODO: Add click events to the numpad grid buttons to add to the current input
