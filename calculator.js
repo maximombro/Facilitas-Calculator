@@ -19,7 +19,7 @@ function buildSection(title, items) {
 
     // Create a p element
     var titleElement = document.createElement('p');
-    titleElement.innerHTML = title;
+    titleElement.textContent = title;
 
     // Add the p element to the main container
     mainContainer.appendChild(titleElement);
@@ -31,7 +31,7 @@ function buildSection(title, items) {
     for(const item of Object.keys(items)) {
         // Create a list element
         var optionElement = document.createElement('li');
-        optionElement.innerHTML = item;
+        optionElement.textContent = item;
 
         // TODO: Add click listener to add to the current input
 
@@ -51,13 +51,6 @@ function createNewInput() {
     // Create the input container element
     var container = document.createElement('li');
 
-    // Create the hide span
-    var spanHide = document.createElement('span');
-    spanHide.classList.add('hide');
-
-    // Add the hide span
-    container.appendChild(spanHide);
-
     // Create the text input
     var textInput = document.createElement('input');
     textInput.setAttribute('type', 'text');
@@ -72,7 +65,7 @@ function createNewInput() {
 
     // Create the output span
     var spanOutput = document.createElement('span');
-    spanOutput.innerHTML = 'No Input';
+    spanOutput.textContent = 'No Input';
     spanOutput.classList.add('output');
     spanOutput.classList.add('err');
 
@@ -92,9 +85,18 @@ function resizeInputWithThis() {
     resizeInput(this);
 }
 
-// Calls the resize with the provided target
+// Calls the resize with the provided target. Make sure whatever target is place _immediately_ after the .hide span.
+// It's done in this fashion for speed, not safety. You know the drill.
 function resizeInput(target) {
-    console.log(target, target.previousElementSibling);
+    // Get the font size
+    var fontSize = window.getComputedStyle(target).getPropertyValue('font-size');
+    fontSize = fontSize.substring(0, fontSize.length-2);
+    fontSize = parseInt(fontSize);
+
+    // Assign the width property based on hide text
+    target.style.width = (String(target.value.length*(fontSize-5))+'px');
+
+    console.log(target.value, (target.value.length*fontSize), target.style.width);
 }
 
 /// Setup Function

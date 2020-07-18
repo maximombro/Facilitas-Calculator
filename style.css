@@ -48,6 +48,7 @@ button,
     background-color: var(--colorDarkA);
     color: whitesmoke;
     border: none;
+    outline-color: var(--colorAccentB);
 }
 
 button:hover,
@@ -98,22 +99,23 @@ button:hover,
 }
 
 #equations > li > input {
+    font-family: 'Source Code Pro', monospace;
     padding: 0;
     margin: 0;
     border: none;
-    min-width: 10px;
+    min-width: 25px;
+    background: none;
+    color: whitesmoke;
+    outline: none;
+}
+
+#equations > li > input::placeholder {
+    color: lightgray;
 }
 
 #equations > li > span {
     font-family: 'Source Code Pro Bold', monospace;
     color: var(--colorLightA);
-}
-
-#equations > li > span.hide {
-    position: absolute;
-    height: 0;
-    overflow: hidden;
-    white-space: pre;
 }
 
 #equations > li > span.output.err {
