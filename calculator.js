@@ -46,6 +46,33 @@ function buildSection(title, items) {
     document.getElementById('choiceItems').appendChild(mainContainer);
 }
 
+// Creates a new calculation input
+function createNewInput() {
+    // Create the input container element
+    var container = document.createElement('li');
+
+    // Create the text input
+    var textInput = document.createElement('input');
+    textInput.setAttribute('type', 'text');
+    textInput.setAttribute('value', '');
+    textInput.setAttribute('placeholder', '...');
+
+    // Add the input to the container
+    container.appendChild(textInput);
+
+    // Create the output span
+    var spanOutput = document.createElement('span');
+    spanOutput.innerHTML = 'No Input';
+    spanOutput.classList.add('output');
+    spanOutput.classList.add('err');
+
+    // Add the output span
+    container.appendChild(spanOutput);
+
+    // Add the input to the page
+    document.getElementById('equations').appendChild(container);
+}
+
 /// Setup Function
 // Function that sets up the calculator
 function setup() {
@@ -59,11 +86,10 @@ function setup() {
         cot: 'optionF',
     });
 
-    // TODO: Populate the sections' specific menus and add click events to add to the current input
-
     // TODO: Add click events to the numpad grid buttons to add to the current input
 
-    // TODO: Create new equation input from template HTML
+    // Create a new equation input
+    createNewInput();
 
     // TODO: Begin watching the input to calculate per change
 
