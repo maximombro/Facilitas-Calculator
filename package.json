@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A calculator to help the average coder with their math",
   "main": "main.js",
-  "dependencies": {},
+  "dependencies": {
+    "mathjs": "^7.1.0"
+  },
   "devDependencies": {
     "electron": "^9.1.0"
   },

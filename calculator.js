@@ -5,6 +5,7 @@
 */
 
 /// Imports
+const { evaluate } = require('mathjs');
 
 /// Variables
 
@@ -57,8 +58,35 @@ function createNewInput() {
     textInput.setAttribute('value', '');
     textInput.setAttribute('placeholder', '...');
 
-    // Add input listener
+    // Add input listener for resize
     textInput.addEventListener('input', resizeInputWithThis);
+
+    // Add input listener for 
+    textInput.addEventListener('input', (event) => {
+        // Get the result sibling
+        var spanResult = event.target.nextSibling;
+
+        // Enter the try/catch
+        try {
+            // Calculate the value based on input
+            var mathResult = evaluate(event.target.value);
+
+            // Check if math result is undefined
+            if(mathResult === undefined) {
+                // Update the span result
+                spanResult.textContent = 'No Input';
+                spanResult.classList.add('err');
+            } else {
+                // Update the span result
+                spanResult.textContent = String(mathResult);
+                spanResult.classList.remove('err');
+            }
+        } catch(err) {
+            // Update the span result
+            spanResult.textContent = 'No Input';
+            spanResult.classList.add('err');
+        }
+    });
 
     // Add the input to the container
     container.appendChild(textInput);
@@ -85,8 +113,7 @@ function resizeInputWithThis() {
     resizeInput(this);
 }
 
-// Calls the resize with the provided target. Make sure whatever target is place _immediately_ after the .hide span.
-// It's done in this fashion for speed, not safety. You know the drill.
+// Calls the resize with the provided target
 function resizeInput(target) {
     // Get the font size
     var fontSize = window.getComputedStyle(target).getPropertyValue('font-size');
@@ -95,8 +122,6 @@ function resizeInput(target) {
 
     // Assign the width property based on hide text
     target.style.width = (String(target.value.length*(fontSize-5))+'px');
-
-    console.log(target.value, (target.value.length*fontSize), target.style.width);
 }
 
 /// Setup Function
