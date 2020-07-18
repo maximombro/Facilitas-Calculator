@@ -11,7 +11,8 @@
 /// Functions
 // Builds a section with the specified title and items
 // title -> The title of the section
-// items -> 
+// items -> A dictionary of the items to show and what they add to the input
+//  ex: {displayText: 'Text to add to input'}
 function buildSection(title, items) {
     // Create the main div container
     var mainContainer = document.createElement('div');
@@ -27,7 +28,7 @@ function buildSection(title, items) {
     var optionsContainer = document.createElement('ul');
 
     // Loop through the provided items
-    for(const item of items) {
+    for(const item of Object.keys(items)) {
         // Create a list element
         var optionElement = document.createElement('li');
         optionElement.innerHTML = item;
@@ -47,7 +48,12 @@ function buildSection(title, items) {
 // Function that sets up the calculator
 function setup() {
     // TODO: Populate the sections and add click events to open their specific menus (trigonometry, function, special, etc)
-    buildSection('Test', ['Item 1', 'Item 2', 'Item 3', 'Item 4']);
+    buildSection('Test', {
+        optionA: 'optionA',
+        optionB: 'optionB',
+        optionC: 'optionC',
+        optionD: 'optionD'
+    });
 
     // TODO: Populate the sections' specific menus and add click events to add to the current input
 
