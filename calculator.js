@@ -82,17 +82,17 @@ function createNewInput() {
             var mathResult = evaluate(event.target.value);
 
             // Check if math result is undefined
-            if(mathResult === undefined) {
-                // Update the span result
+            if(mathResult === undefined || typeof(mathResult) === 'function') {
+                // Update the span result as an error
                 spanResult.textContent = 'No Input';
                 spanResult.classList.add('err');
             } else {
-                // Update the span result
+                // Update the span result as the value
                 spanResult.textContent = String(mathResult);
                 spanResult.classList.remove('err');
             }
         } catch(err) {
-            // Update the span result
+            // Update the span result as an error
             spanResult.textContent = 'No Input';
             spanResult.classList.add('err');
         }
