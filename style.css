@@ -132,6 +132,7 @@ button:hover,
 #choiceItems {
     display: flex;
     height: 5.5%;
+    min-height: 40px;
     padding: 4px 4px 4px 4px;
     position: relative;
 }
@@ -174,13 +175,15 @@ button:hover,
 }
 
 #choiceItems > div:hover > ul {
-    display: block;
+    display: flex;
 }
 
 #choiceItems > div > ul > li {
     cursor: pointer;
     padding: 6px;
-    margin-top: 4px;
+    margin: 4px 0px 0px 4px;
+    width: 20%;
+    text-align: center;
     background-color: var(--colorDarkA);
 }
 
