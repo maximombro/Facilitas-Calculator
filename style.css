@@ -103,10 +103,12 @@ button:hover,
     padding: 0;
     margin: 0;
     border: none;
+    max-width: 80%;
     min-width: 25px;
     background: none;
     color: whitesmoke;
     outline: none;
+    overflow-x: auto;
 }
 
 #equations > li > input::placeholder {
