@@ -42,16 +42,30 @@ function buildSectionItems(items) {
     // Create the options container
     var optionsContainer = document.createElement('ul');
 
-    // Loop through the provided items
-    for(const item of Object.keys(items)) {
-        // Create a list element
-        var optionElement = document.createElement('li');
-        optionElement.textContent = item;
+    // Get the keys
+    var keys = Object.keys(items)
 
-        // Add click listener to add to the current input
-        optionElement.addEventListener('click', () => {
-            addToCurrentInput(items[item]);
-        });
+    // Check if there are keys present
+    if(Object.keys(items).length > 0) {
+        // Loop through the provided items
+        for(const key of keys) {
+            // Create a list element
+            var optionElement = document.createElement('li');
+            optionElement.textContent = key;
+
+            // Add click listener to add to the current input
+            optionElement.addEventListener('click', () => {
+                addToCurrentInput(items[key]);
+            });
+
+            // Add to the options container
+            optionsContainer.appendChild(optionElement);
+        }
+    } else {
+        // Create an empty element
+        var optionElement = document.createElement('li');
+        optionElement.textContent = 'No Items';
+        optionElement.classList.add('empty');
 
         // Add to the options container
         optionsContainer.appendChild(optionElement);
