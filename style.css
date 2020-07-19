@@ -160,6 +160,8 @@ button:hover,
 
 #choiceItems > div > ul {
     display: none;
+    flex-wrap: wrap;
+    justify-content: left;
     list-style-type: none;
     margin: 0;
     padding: 0px 4px 4px 4px;
@@ -169,7 +171,6 @@ button:hover,
     right: 4px;
     background-color: var(--colorDarkB);
     border: 1px solid var(--colorAccentA);
-    max-height: 200px;
     overflow-y: auto;
     box-shadow: 1px 1px 3px black
 }
@@ -182,7 +183,7 @@ button:hover,
     cursor: pointer;
     padding: 6px;
     margin: 4px 0px 0px 4px;
-    width: 20%;
+    width: 19%;
     text-align: center;
     background-color: var(--colorDarkA);
 }
