@@ -148,18 +148,43 @@ function addToCurrentInput(txt) {
     calculateResultForCurrentInput(currentInput);
 }
 
+// Removes the specified amount of characters from the end of the current input.
+// If the number exceeds the length of the current input, it removes the whole text.
+function removeFromCurrentInput(amount) {
+    // Get the last child of the equations
+    var currentInput = document.getElementById('equations').lastChild.querySelector('input');
+
+    // Check the length of the current input
+    if(currentInput.value.length < amount) {
+        // Assign amount to the total length
+        amount = currentInput.value.length;
+    }
+
+    // Alter the value
+    currentInput.value = currentInput.value.slice(0, -amount);
+
+    // Resize the input
+    resizeInput(currentInput);
+
+    // Calculate the result
+    calculateResultForCurrentInput(currentInput);
+}
+
 // Assigns the click actions to the buttons within the keypad
 function readyKeypad() {
     // Loop through the buttons in the keypad
     for(const btn of document.querySelectorAll('#buttons > button')) {
         // Check if a special input
         switch(btn.textContent) {
-            case '-/+':
-                // TODO: Add negative to the first
+            case '←':
+                // Assign a listener to remove last character
+                btn.addEventListener('click', () => {
+                    removeFromCurrentInput(1);
+                });
                 break;
         
             default:
-                // Just use the text
+                // Just add the text the button represents
                 btn.addEventListener('click', () => {
                     addToCurrentInput(btn.textContent);
                 });
