@@ -27,6 +27,19 @@ function buildSection(title, items) {
     mainContainer.appendChild(titleElement);
 
     // Create the options container
+    var optionsContainer = buildSectionItems(items);
+
+    // Add to the main div container
+    mainContainer.appendChild(optionsContainer);
+
+    // Add the main container to the page
+    document.getElementById('choiceItems').appendChild(mainContainer);
+}
+
+// Builds an item set to be displayed by a section
+// items -> A dictionary of the items to show and what they add to the input
+function buildSectionItems(items) {
+    // Create the options container
     var optionsContainer = document.createElement('ul');
 
     // Loop through the provided items
@@ -44,11 +57,8 @@ function buildSection(title, items) {
         optionsContainer.appendChild(optionElement);
     }
 
-    // Add to the main div container
-    mainContainer.appendChild(optionsContainer);
-
-    // Add the main container to the page
-    document.getElementById('choiceItems').appendChild(mainContainer);
+    // Return the options container
+    return optionsContainer;
 }
 
 // Creates a new calculation input
@@ -221,6 +231,8 @@ function setup() {
         gcd: 'gcd(a, b)',
         variable: 'a = '
     });
+
+    buildSection('Variables', MATH_SCOPE);
 
     // Prepare the keypad buttons
     readyKeypad();
