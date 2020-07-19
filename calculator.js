@@ -201,6 +201,30 @@ function removeFromCurrentInput(amount) {
     calculateResultForCurrentInput(currentInput);
 }
 
+// Finishes the current input, moves it to a holding element, and creates a new current input
+function finishCurrentInput() {
+    // Get the equations root container
+    var equationsContainer = document.getElementById('equations');
+
+    // Get the last child of the equations
+    var currentInputContainer = equationsContainer.lastChild;
+
+    // Create the holding element container
+    var holding = document.createElement('li');
+    holding.textContent = currentInputContainer.querySelector('input').value;
+    holding.classList.add('final');
+
+    // Create the result span
+    var spanResult = document.createElement('span');
+    spanResult.textContent = currentInputContainer.querySelector('span').textContent;
+    
+    // Add the result span to the holding element container
+    holding.appendChild(spanResult);
+
+    // Add the holding element container to the equations container
+    equationsContainer.appendChild(holding);
+}
+
 // Assigns the click actions to the buttons within the keypad
 function readyKeypad() {
     // Loop through the buttons in the keypad
@@ -222,6 +246,12 @@ function readyKeypad() {
                 break;
         }
     }
+
+    // Get the enter button by id
+    var enterBtn = document.getElementById('enter');
+
+    // Add the finish current input func to the enter button
+    enterBtn.addEventListener('click', finishCurrentInput);
 }
 
 /// Setup Function

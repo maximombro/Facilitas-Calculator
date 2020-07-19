@@ -88,14 +88,15 @@ button:hover,
 
 #equations > li {
     position: relative;
+    margin: 0;
     padding: 4px 8px 4px 8px;
     min-height: 24px;
     border-top: 1px solid var(--colorAccentA);
     border-bottom: 1px solid var(--colorAccentA);
 }
 
-#equations > li {
-    margin: 0;
+#equations > li.final {
+    height: 30px;
 }
 
 #equations > li > input {
@@ -124,7 +125,8 @@ button:hover,
     color: var(--colorAccentB);
 }
 
-#equations > li > span.output::before {
+#equations > li > span.output::before,
+#equations > li.final > span::before {
     content: ' -> ';
 }
 
