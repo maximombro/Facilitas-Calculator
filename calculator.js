@@ -15,9 +15,16 @@ var MATH_SCOPE = {};
 // title -> The title of the section
 // items -> A dictionary of the items to show and what they add to the input
 //  ex: {displayText: 'Text to add to input'}
-function buildSection(title, items) {
+// tag -> Null or a string to be added as a class to the main container
+function buildSection(title, items, tag = null) {
     // Create the main div container
     var mainContainer = document.createElement('div');
+
+    // Check if a tag is provided
+    if(tag !== null) {
+        // Add the tag as a class
+        mainContainer.classList.add(tag);
+    }
 
     // Create a p element
     var titleElement = document.createElement('p');
@@ -246,7 +253,7 @@ function setup() {
         variable: 'a = '
     });
 
-    buildSection('Variables', MATH_SCOPE);
+    buildSection('Variables', MATH_SCOPE, 'vars');
 
     // Prepare the keypad buttons
     readyKeypad();
