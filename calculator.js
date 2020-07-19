@@ -37,14 +37,7 @@ function buildSection(title, items) {
 
         // Add click listener to add to the current input
         optionElement.addEventListener('click', () => {
-            // Get the last child of the equations
-            var currentInput = document.getElementById('equations').lastChild.querySelector('input');
-
-            // Add the current bit to the input
-            currentInput.value = currentInput.value+items[item];
-
-            // Resize the input
-            resizeInput(currentInput);
+            addToCurrentInput(items[item]);
         });
 
         // Add to the options container
@@ -74,29 +67,7 @@ function createNewInput() {
 
     // Add input listener for 
     textInput.addEventListener('input', (event) => {
-        // Get the result sibling
-        var spanResult = event.target.nextSibling;
-
-        // Enter the try/catch
-        try {
-            // Calculate the value based on input
-            var mathResult = evaluate(event.target.value, MATH_SCOPE);
-
-            // Check if math result is undefined
-            if(mathResult === undefined || typeof(mathResult) === 'function') {
-                // Update the span result as an error
-                spanResult.textContent = 'No Input';
-                spanResult.classList.add('err');
-            } else {
-                // Update the span result as the value
-                spanResult.textContent = String(mathResult);
-                spanResult.classList.remove('err');
-            }
-        } catch(err) {
-            // Update the span result as an error
-            spanResult.textContent = 'No Input';
-            spanResult.classList.add('err');
-        }
+        calculateResultForCurrentInput(event.target);
     });
 
     // Add the input to the container
@@ -135,6 +106,68 @@ function resizeInput(target) {
     target.style.width = (String(target.value.length*(fontSize-5))+'px');
 }
 
+// Calculates and assigns the result for the current input
+function calculateResultForCurrentInput(target) {
+    // Get the result sibling
+    var spanResult = target.nextSibling;
+
+    // Enter the try/catch
+    try {
+        // Calculate the value based on input
+        var mathResult = evaluate(target.value, MATH_SCOPE);
+
+        // Check if math result is undefined
+        if(mathResult === undefined || typeof(mathResult) === 'function') {
+            // Update the span result as an error
+            spanResult.textContent = 'No Input';
+            spanResult.classList.add('err');
+        } else {
+            // Update the span result as the value
+            spanResult.textContent = String(mathResult);
+            spanResult.classList.remove('err');
+        }
+    } catch(err) {
+        // Update the span result as an error
+        spanResult.textContent = 'No Input';
+        spanResult.classList.add('err');
+    }
+}
+
+// Inserts the provided text into the input
+function addToCurrentInput(txt) {
+    // Get the last child of the equations
+    var currentInput = document.getElementById('equations').lastChild.querySelector('input');
+
+    // Add the current bit to the input
+    currentInput.value = currentInput.value+txt;
+
+    // Resize the input
+    resizeInput(currentInput);
+
+    // Calculate the result
+    calculateResultForCurrentInput(currentInput);
+}
+
+// Assigns the click actions to the buttons within the keypad
+function readyKeypad() {
+    // Loop through the buttons in the keypad
+    for(const btn of document.querySelectorAll('#buttons > button')) {
+        // Check if a special input
+        switch(btn.textContent) {
+            case '-/+':
+                // TODO: Add negative to the first
+                break;
+        
+            default:
+                // Just use the text
+                btn.addEventListener('click', () => {
+                    addToCurrentInput(btn.textContent);
+                });
+                break;
+        }
+    }
+}
+
 /// Setup Function
 // Function that sets up the calculator
 function setup() {
@@ -164,7 +197,8 @@ function setup() {
         variable: 'a = '
     });
 
-    // TODO: Add click events to the numpad grid buttons to add to the current input
+    // Prepare the keypad buttons
+    readyKeypad();
 
     // Create a new equation input
     createNewInput();
